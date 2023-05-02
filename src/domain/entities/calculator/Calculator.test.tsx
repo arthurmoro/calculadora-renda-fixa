@@ -13,11 +13,11 @@ describe("Calculator", () => {
     const rate = 100;
     const expectedAmount = 200;
 
-    const result = calculator.calculateCompoundInterest(
+    const result = calculator.calculateCompoundInterest({
       initialAmount,
       months,
-      rate
-    );
+      rate,
+    });
 
     expect(result.totalAmount).toEqual(expectedAmount);
     expect(result.interestTotalAmount).toEqual(100);
@@ -30,12 +30,12 @@ describe("Calculator", () => {
     const rate = 1;
     const expectedAmount = 303.01;
 
-    const result = calculator.calculateCompoundInterest(
+    const result = calculator.calculateCompoundInterest({
       initialAmount,
       months,
       rate,
-      monthlyAmount
-    );
+      monthlyAmount,
+    });
 
     expect(result.totalAmount).toEqual(expectedAmount);
     expect(result.interestTotalAmount.toFixed(2)).toEqual((3.01).toFixed(2));
@@ -48,12 +48,12 @@ describe("Calculator", () => {
     const rate = 0.98;
     const expectedAmount = 23909.9;
 
-    const result = calculator.calculateCompoundInterest(
+    const result = calculator.calculateCompoundInterest({
       initialAmount,
       months,
       rate,
-      monthlyAmount
-    );
+      monthlyAmount,
+    });
 
     expect(result.totalAmount.toFixed()).toEqual(expectedAmount.toFixed());
   });
@@ -65,13 +65,13 @@ describe("Calculator", () => {
     const rate = 1.13;
     const tax = 15;
 
-    const result = calculator.calculateCompoundInterest(
+    const result = calculator.calculateCompoundInterest({
       initialAmount,
       months,
       rate,
       monthlyAmount,
-      tax
-    );
+      tax,
+    });
 
     expect(result.interestTotalAmount.toFixed()).toEqual(
       (38757.3905).toFixed()
