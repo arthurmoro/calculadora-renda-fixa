@@ -3,6 +3,7 @@ import { CalculatorController } from "../../controllers/Calculator.controller";
 import { CalculatorForm } from "./Form";
 import { ICalculateCompoundInterestResponse } from "../../domain/entities/calculator/Calculator";
 import { CalculatorResultsPresenter } from "./Results";
+import { Col, Row } from "react-bootstrap";
 
 export interface CalculatorInputs {
   aporte_inicial: number;
@@ -72,10 +73,13 @@ export function Calculator() {
   }
 
   return (
-    <div>
-      <p>Para fazer o calculo da renda fixa, vamos preencher o formulário:</p>
-      <CalculatorForm calcular={calcular} />
-      <CalculatorResultsPresenter {...resultadoCalculo} />
-    </div>
+    <Row>
+      <Col>
+        <CalculatorForm calcular={calcular} />
+      </Col>
+      <Col>
+        <CalculatorResultsPresenter {...resultadoCalculo} />
+      </Col>
+    </Row>
   );
 }
