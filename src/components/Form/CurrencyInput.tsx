@@ -15,6 +15,7 @@ interface Props {
   style?: CSSProperties;
   value: number;
   prefix?: string;
+  "aria-describedby"?: string;
 }
 
 const VALID_FIRST = /^[1-9]{1}$/;
@@ -30,6 +31,7 @@ const CurrencyInput: FC<Props> = ({
   value,
   display = "currency",
   prefix = "",
+  "aria-describedby": ariaDescribedBy = "",
 }) => {
   const valueAbsTrunc = Math.trunc(Math.abs(value));
   if (
@@ -66,9 +68,7 @@ const CurrencyInput: FC<Props> = ({
     },
     [max, onValueChange, value]
   );
-  const handleChange = useCallback(() => {
-    // DUMMY TO AVOID REACT WARNING
-  }, []);
+
   const valueDisplay =
     prefix +
     (value / 100).toLocaleString("pt-BR", {
@@ -84,6 +84,7 @@ const CurrencyInput: FC<Props> = ({
       onKeyDown={handleKeyDown}
       style={style}
       value={valueDisplay}
+      aria-describedby={ariaDescribedBy}
     />
   );
 };

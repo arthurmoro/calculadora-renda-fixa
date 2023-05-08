@@ -50,7 +50,7 @@ export class Calculator {
       totalAmountWithInterests: totalAmountWithInterests,
       totalAmountWithInterestsAndTaxes:
         totalAmountWithInterests - taxRateTotalAmount,
-      interestTotalAmount: interestTotalAmount - taxRateTotalAmount,
+      interestTotalAmount: interestTotalAmount,
       taxRateTotalAmount,
       months,
     };

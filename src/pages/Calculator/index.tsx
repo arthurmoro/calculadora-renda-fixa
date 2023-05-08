@@ -67,7 +67,7 @@ export function Calculator() {
       valor_total_investido: resutlado.totalAmount,
       valor_total_juros: resutlado.interestTotalAmount,
       valor_total_imposto: resutlado.taxRateTotalAmount,
-      valor_total_sem_imposto: resutlado.totalAmountWithInterestsAndTaxes,
+      valor_total_sem_imposto: resutlado.totalAmountWithInterests,
       valor_total_liquido: resutlado.totalAmountWithInterestsAndTaxes,
     });
   }

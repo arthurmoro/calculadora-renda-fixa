@@ -1,4 +1,4 @@
-import { ReactNode, SyntheticEvent, useCallback, useState } from "react";
+import { SyntheticEvent, useCallback, useState } from "react";
 import { CalculatorInputs } from ".";
 import { Button, Card, Form } from "react-bootstrap";
 import CurrencyInput, {
@@ -42,17 +42,24 @@ export function CalculatorForm(props: CalculatorFormProps) {
     <Card body>
       <Form onSubmit={calcular}>
         <Form.Group className="mb-3">
-          <Form.Label column>Valor inicial:</Form.Label>
+          <Form.Label column htmlFor="aporte_inicial">
+            Valor inicial:
+          </Form.Label>
           <CurrencyInput
             name="aporte_inicial"
             max={10000000000000}
             value={inputs.aporte_inicial}
             onValueChange={handleValueChange}
+            aria-describedby="aporte_inicial"
           />
+          <Form.Text id="aporte_inicial" muted>
+            Você já possui algum valor que irá colocar na primeira vez que for
+            fazer o investimento?
+          </Form.Text>
         </Form.Group>
         <Form.Group className="mb-3">
           <Form.Label column>
-            Qual a média de aporte mensal até a data final?
+            Qual a média que você pretende colocar todo mês?
           </Form.Label>
           <CurrencyInput
             name="aporte_mensal"
