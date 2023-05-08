@@ -45,7 +45,7 @@ export function CalculatorResultsPresenter(props: CalculatedResults) {
           })}
         </p>
         <p>
-          Valor líquido estimado após periodo de investimento:{" "}
+          Valor líquido estimado após período de investimento:{" "}
           {props.valor_total_liquido.toLocaleString("pt-BR", {
             style: "currency",
             currency: "BRL",

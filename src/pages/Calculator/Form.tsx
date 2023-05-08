@@ -93,7 +93,7 @@ export function CalculatorForm(props: CalculatorFormProps) {
         </Form.Group>
         <Form.Group className="mb-3">
           <Form.Label column>
-            No final do periodo, qual o imposto sobre rendimento?
+            No final do período, qual o imposto sobre rendimento?
           </Form.Label>
 
           <CurrencyInput

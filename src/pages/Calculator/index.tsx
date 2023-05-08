@@ -74,10 +74,10 @@ export function Calculator() {
 
   return (
     <Row>
-      <Col>
+      <Col sm={12} md={6} style={{ paddingTop: "16px", paddingBottom: "16px" }}>
         <CalculatorForm calcular={calcular} />
       </Col>
-      <Col>
+      <Col sm={12} md={6} style={{ paddingTop: "16px", paddingBottom: "16px" }}>
         <CalculatorResultsPresenter {...resultadoCalculo} />
       </Col>
     </Row>
