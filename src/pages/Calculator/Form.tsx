@@ -4,6 +4,7 @@ import { Button, Card, Form } from "react-bootstrap";
 import CurrencyInput, {
   onValueChangeProps,
 } from "../../components/Form/CurrencyInput";
+import TagManager from "react-gtm-module";
 interface CalculatorFormProps {
   calcular: (inputs: CalculatorInputs) => void;
 }
@@ -17,6 +18,19 @@ export function CalculatorForm(props: CalculatorFormProps) {
     taxa_imposto: 0,
   } as CalculatorInputs);
 
+  function sendTagManagerEvent() {
+    TagManager.initialize({
+      gtmId: "G-9N6XEJ9B9M",
+      events: {
+        renda_calculada: "renda_calculada",
+        eventName: "renda_calculada",
+      },
+      dataLayer: {
+        event_name: "calcular",
+      },
+    });
+  }
+
   const calcular = (event: SyntheticEvent<HTMLFormElement>) => {
     event.preventDefault();
     props.calcular({
@@ -27,6 +41,8 @@ export function CalculatorForm(props: CalculatorFormProps) {
       taxa_imposto: inputs.taxa_imposto / 100,
     });
   };
+
+  sendTagManagerEvent();
 
   const handleChange = (event: any) => {
     const name = event.currentTarget.name;

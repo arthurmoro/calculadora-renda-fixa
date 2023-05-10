@@ -13,7 +13,7 @@ export class CalculatorController {
     );
   }
 
-  async executar(props: ICalculateCompoundInterestDTO) {
+  async calculateFixedIncome(props: ICalculateCompoundInterestDTO) {
     const result = await this.calcularValorRendaFixaUseCase.execute({
       initialAmount: +props.initialAmount,
       months: +props.months,

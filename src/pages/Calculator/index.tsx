@@ -36,23 +36,26 @@ export function Calculator() {
       valor_total_sem_imposto: 0,
     });
 
-  async function calcular(inputs: CalculatorInputs) {
+  function getCalculateCompoundInterestDTO(inputs: CalculatorInputs) {
     const aporte_inicial = inputs.aporte_inicial;
     const aporte_mensal = inputs.aporte_mensal;
     const taxa_mes = inputs.taxa_mes;
     const periodo_em_meses = inputs.periodo_em_meses;
     const taxa_imposto = inputs.taxa_imposto;
-    const calculatorController = new CalculatorController();
-    const resultado = await calculatorController.executar({
+    return {
       initialAmount: aporte_inicial,
       months: periodo_em_meses,
       rate: taxa_mes,
       monthlyAmount: aporte_mensal,
       tax: taxa_imposto,
-    });
-    resultadoCalculo.aporte_inicial = aporte_inicial;
+    };
+  }
+
+  async function calcular(inputs: CalculatorInputs) {
+    const calculatorController = new CalculatorController();
+    const dto = getCalculateCompoundInterestDTO(inputs);
+    const resultado = await calculatorController.calculateFixedIncome(dto);
     getCalculatedResultsDTO(resultado);
-    console.log(resultado);
   }
 
   function getCalculatedResultsDTO(
