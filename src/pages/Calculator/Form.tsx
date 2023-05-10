@@ -40,9 +40,9 @@ export function CalculatorForm(props: CalculatorFormProps) {
       taxa_mes: inputs.taxa_mes / 100,
       taxa_imposto: inputs.taxa_imposto / 100,
     });
-  };
 
-  sendTagManagerEvent();
+    sendTagManagerEvent();
+  };
 
   const handleChange = (event: any) => {
     const name = event.currentTarget.name;
