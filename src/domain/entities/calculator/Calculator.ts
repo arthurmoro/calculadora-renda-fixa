@@ -61,7 +61,27 @@ export class Calculator {
     return interestTotalAmount * (taxRate / 100);
   }
 
+  /**
+   * Calcula o valor dos juros com base na taxa mensal
+   * @param totalAmount Valor total sobre o qual os juros serão calculados
+   * @param rate Taxa de juros mensal (em percentual)
+   * @returns Valor dos juros calculados
+   */
   private calculateInterestAmount(totalAmount: number, rate: number): number {
     return totalAmount * (rate / 100);
+  }
+
+  /**
+   * Calcula o valor dos juros com base na taxa anual, convertendo para mensal
+   * @param totalAmount Valor total sobre o qual os juros serão calculados
+   * @param annualRate Taxa de juros anual (em percentual)
+   * @returns Valor dos juros calculados usando a taxa mensal equivalente
+   */
+  private calculateInterestAmountFromAnnualRate(
+    totalAmount: number,
+    annualRate: number
+  ): number {
+    const monthlyRate = annualRate / 12;
+    return this.calculateInterestAmount(totalAmount, monthlyRate);
   }
 }
